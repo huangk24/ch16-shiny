@@ -5,29 +5,39 @@ library(shiny)
 
 # Define a new `ui` variable. This variable should be assigned a `fluidPage()` 
 # layout, which should be passed the following:
-
-
+ui <- fluidPage(
+  
   # A top level header: "First Shiny Website"
+  h1("First Shiny Website"),
   
-
   # A Paragraph, describing your excitement: include some `strong` text
+  p(
+    "This is the ", strong("First"), "website I build with shiny, and ", 
+           "it will be so ", strong("cool"), "!"
+  ),
   
-
   # An image with this `src`
+  img(
+    "", 
+    src = "https://media2.giphy.com/media/l3q2Ip7FrmPE33EiI/giphy.gif"
+  ),
+  
   # https://media2.giphy.com/media/l3q2Ip7FrmPE33EiI/giphy.gif
-  
-  
   # Another paragraph about a slider: include some `em` text
-  
-  
+  p(
+    "This project is for ", em("Info 201"), "class!"
+  ),
   # A slider with an appropriate label, min of 10, max of 100, value of 50  
-  
+  sliderInput("slider", label = h3("Slider"), min = 10, 
+              max = 100, value = 50)
+)
 
 
 # Define a `server` function that accepts an input and an output
 # At this point, don't do anything in the function
 # This function should perform the following:
-
+server <- function(input, output) {}
 
 
 # Create a new `shinyApp()` using the above ui and server
+shinyApp(ui = ui, server = server)
